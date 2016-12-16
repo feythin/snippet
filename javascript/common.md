@@ -85,6 +85,13 @@ substr()方法返回字符串中从指定位置开始到指定长度的子字符
 str.substr(start[, length])
 start 为负数时，从右边第start个字符位置开始，即从str.length+start开始
 ```
-6. 
+6. 数组去重
 
-
+```
+var r,arr = ['apple', 'strawberry', 'banana', 'pear', 'apple', 'orange', 'orange', 'strawberry'];
+r = arr.filter(function (element, index, self) {
+            return self.indexOf(element) === index;
+            });
+alert(r.toString());
+```
+去除重复元素依靠的是indexOf总是返回第一个元素的位置，后续的重复元素位置与indexOf返回的位置不相等，因此被filter滤掉了。
